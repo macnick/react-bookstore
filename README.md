@@ -15,7 +15,7 @@ Magic-books Inc. bookstore application. Fast, dynamic and responsive build with 
 
 ### Objective
 
-Math-magicians is a fictional company based in France. They have requested my help to build a simple, but fully-functional, beautiful, and user-friendly program that would assist them with their calculations. I used React and other technologies. See [technologies used](#Technologies-Used) for more info.
+Magic-books Inc. is a fictional company based in Germany. They have requested our help to build the front-end of an application that will help them organize and manage their bookstore. They want it to be fast, dynamic and responsive to their actions and therefore we decided to build it with React & Redux. See [technologies used](#Technologies-Used) for more info.
 
 [Up](#Table-of-Contents)
 
@@ -25,6 +25,7 @@ Math-magicians is a fictional company based in France. They have requested my he
 - React
 - React-DOM
 - React-Create-App
+- Redux
 - npm
 - HTML/CSS
 - ES6
@@ -37,7 +38,7 @@ Math-magicians is a fictional company based in France. They have requested my he
 
 A live version is hosted on Heroku.
 
-- [**Calulator**](https://react-calculator-88569.herokuapp.com) @ heroku
+- [**Bookstore**](https://react-bookstore-270720.herokuapp.com) @ heroku
 
 ### How to Install and Run in Your Computer
 
@@ -48,35 +49,45 @@ Use your terminal and run the commands after each instruction.
 | Command                                             | Description                                           |
 | --------------------------------------------------- | ----------------------------------------------------- |
 | `git clone https://github.com/macnick/RPG-game.git` | Clone the repository to you computer                  |
-| `cd react-calculator`                               | Navigate to the newly created folder                  |
+| `cd react-bookstore`                                | Navigate to the newly created folder                  |
 | `npm install`                                       | Install dependencies and launch browser with examples |
 | `npm start`                                         | Makes the build and starts the development server     |
 |                                                     | Press `Ctrl + c` to kill **http-server** process      |
-| `http://localhost:3000`                             | Visit this link to use the calculator                 |
+| `http://localhost:3000`                             | Visit this link to use the bookstore                  |
 
 [Up](#Table-of-Contents)
 
 ## Acknowledgements
 
 - [Microverse](https://www.microverse.org) software development school
-- [SHEY Louis Chia](https://github.com/shloch) 1st code review
 
 [Up](#Table-of-Contents)
 
-## 👤 Author
+## 👤 Author 1
 
-- Github: [@macnick](https://github.com/macnick)
+### Nick Haralampopoulos
+
+- Github: [@Abdusaid10](https://github.com/Abdusaid10)
 - Twitter: [@mac_experts](https://twitter.com/mac_experts)
 - Linkedin: [Nick Haralampopoulos](https://www.linkedin.com/in/nick-haralampopoulos/)
 - AngelList: [Nick Haralampopoulos](https://angel.co/u/nick-haralampopoulos)
+
+## 👤 Author 2
+
+### Abdusaid Abdurasulov
+
+- Github: [@macnick](https://github.com/macnick)
+- Twitter: []()
+- Linkedin: []()
+- AngelList: []()
 
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/macnick/react-calculator/issues).
+Feel free to check the [issues page](https://github.com/macnick/react-bookstore/issues).
 
-1. Fork it (https://github.com/macnick/react-calculator/fork)
+1. Fork it (https://github.com/macnick/react-bookstore/fork)
 2. Create your feature branch (git checkout -b my-new-feature)
 3. Commit your changes (git commit -am 'Add some feature')
 4. Push to the branch (git push origin my-new-feature)
