@@ -39,8 +39,11 @@ Magic-books Inc. is a fictional company based in Germany. They have requested ou
 A live version is hosted on Heroku.
 
 - [**Bookstore**](https://react-bookstore-270720.herokuapp.com) @ heroku
+  <<<<<<< HEAD
 
-[Up](#Table-of-Contents)
+# [Up](#Table-of-Contents)
+
+> > > > > > > df087d5d6a72ef2762e9f20f8d206fe7140d8feb
 
 ### How to Install and Run in Your Computer
 
