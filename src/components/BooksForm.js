@@ -16,10 +16,12 @@ const BooksFrom = () => {
       <input type="text" name="" id="" />
       <select name="categories" id="">
         {categories.map(cat => (
-          <option value={cat}>{cat}</option>
+          <option value={cat} key={cat}>
+            {cat}
+          </option>
         ))}
       </select>
-      <button>Submit</button>
+      <button type="submit">Submit</button>
     </form>
   );
 };

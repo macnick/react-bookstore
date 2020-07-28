@@ -1,7 +1,6 @@
 import React from 'react';
-import connect from 'react-redux';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import BooksForm from './BooksForm';
 import Book from './Book';
 
 const BookList = ({ books }) => (
@@ -14,17 +13,25 @@ const BookList = ({ books }) => (
       </tr>
     </thead>
     <tbody>
-      {books.map(book => {
-        <Book book={book} />;
-      })}
+      {books.map(book => (
+        <Book book={book} key={book.bookId} />
+      ))}
     </tbody>
   </table>
 );
 
-BookList.PropTypes = {
-  books: PropTypes.arrayOf(
-    PropTypes.object,
-  ).isRequired,
+const mapStateToProps = state => ({
+  books: state,
+});
+
+// const mapDispatchToProps =(dispatch) => {
+//     return {
+//         addBook: (book) => dispatch(addBook(book))
+//     }
+// }
+
+BookList.propTypes = {
+  books: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
-export default BookList;
+export default connect(mapStateToProps, null)(BookList);
