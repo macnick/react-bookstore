@@ -1,6 +1,6 @@
 import React from 'react';
 
-const BookFrom = () => {
+const BooksFrom = () => {
   const categories = [
     'Action',
     'Biography',
