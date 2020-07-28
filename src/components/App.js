@@ -8,3 +8,5 @@ const App = () => (
     <BooksForm />
   </div>
 );
+
+export default App;

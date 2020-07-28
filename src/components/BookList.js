@@ -1,8 +1,10 @@
 import React from 'react';
 import connect from 'react-redux';
+import PropTypes from 'prop-types';
 import BooksForm from './BooksForm';
+import Book from './Book';
 
-export default BookList = ({ books }) => (
+const BookList = ({ books }) => (
   <table>
     <thead>
       <tr>
@@ -18,3 +20,11 @@ export default BookList = ({ books }) => (
     </tbody>
   </table>
 );
+
+BookList.PropTypes = {
+  books: PropTypes.arrayOf(
+    PropTypes.object,
+  ).isRequired,
+};
+
+export default BookList;
