@@ -1,10 +1,10 @@
 import React from 'react';
+import BookList from './BookList';
+import BooksForm from './BooksForm';
 
-const App = () => {
-    return (
-        <div>
-            <BookList />
-            <BookFrom />
-        </div>
-    )
-} 
+const App = () => (
+  <div>
+    <BookList />
+    <BooksForm />
+  </div>
+);

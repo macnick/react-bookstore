@@ -1,16 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App';
 import { createStore } from 'redux';
+import App from './components/App';
 import reducer from './reducers/index';
 
-const randomId = () => {
-  return Math.floor(Math.random() * 10);
-}
+const randomId = () => Math.floor(Math.random() * 10);
 
-const randomCat = () => {
-  return Math.floor(Math.random() * 7);
-}
+const randomCat = () => Math.floor(Math.random() * 7);
 const categories = [
   'Action',
   'Biography',
@@ -41,8 +37,8 @@ const state = [
     book_id: randomId(),
     category: categories[randomCat],
     title: 'Pride and Prejudice',
-  }
-]
+  },
+];
 
 const store = Redux.createStore(reducer(state));
 ReactDOM.render(
@@ -51,5 +47,5 @@ ReactDOM.render(
       <App />
     </Provider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );
