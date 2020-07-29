@@ -1,7 +1,7 @@
 const CREATE_BOOK = 'CREATE_BOOK';
 const REMOVE_BOOK = 'REMOVE_BOOK';
 
-const books = ({ state = [], action }) => {
+const books = (state = [], action) => {
   switch (action.type) {
     case CREATE_BOOK:
       return [
