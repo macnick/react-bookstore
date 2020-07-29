@@ -20,7 +20,7 @@ const BookList = ({ books }) => (
   </table>
 );
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   books: state.books,
 });
 
@@ -36,7 +36,7 @@ BookList.propTypes = {
       bookId: PropTypes.number.isRequired,
       title: PropTypes.string.isRequired,
       category: PropTypes.string.isRequired,
-    })
+    }),
   ).isRequired,
 };
 
