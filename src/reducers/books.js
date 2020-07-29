@@ -7,7 +7,7 @@ const books = ({ state = [], action }) => {
       return [
         ...state,
         {
-          book_id: action.book_id,
+          bookId: action.bookId,
           title: action.title,
           category: action.category,
         },
