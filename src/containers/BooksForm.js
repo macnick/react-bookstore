@@ -1,4 +1,9 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { createBook }  from '../actions/index';
+
+const randomId = () => Math.floor(Math.random() * 1000);
 
 class BooksForm extends Component {
   constructor(props) {
@@ -28,7 +33,17 @@ class BooksForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log('A new book was submitted: ', this.state);
+    let book = {
+      title: this.state.title,
+      category: this.state.category,
+      bookId: randomId(),
+    }
+    console.log(book);
+    this.props.createBook(book);
+    this.setState({
+      title: '',
+      category: '',
+    }); 
   }
 
   render() {
@@ -55,4 +70,16 @@ class BooksForm extends Component {
   }
 }
 
-export default BooksForm;
+const mapDispatchToProps = dispatch => {
+  return {
+    createBook: (book) => {
+      dispatch(createBook(book));
+    }
+  }
+}
+
+BooksForm.protoTypes = {
+  createBook: PropTypes.func.isRequired,
+}
+
+export default connect(null, mapDispatchToProps)(BooksForm);
