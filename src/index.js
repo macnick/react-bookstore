@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import App from './components/App';
 import reducer from './reducers/index';
 
-const randomId = () => Math.floor(Math.random() * 10);
+const randomId = () => Math.floor(Math.random() * 100);
 
 const randomCat = () => Math.floor(Math.random() * 7);
 
@@ -50,5 +50,5 @@ ReactDOM.render(
   <Provider store={store}>
     <App />
   </Provider>,
-  document.getElementById('root'),
+  document.getElementById('root')
 );
