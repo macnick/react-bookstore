@@ -22,22 +22,22 @@ const categories = [
 const initialState = {
   books: [
     {
-      book_id: randomId(),
+      bookId: randomId(),
       category: categories[randomCat()],
       title: 'Steve Jobs by Walter Isaacson',
     },
     {
-      book_id: randomId(),
+      bookId: randomId(),
       category: categories[randomCat()],
       title: "You don't know JavaScript",
     },
     {
-      book_id: randomId(),
+      bookId: randomId(),
       category: categories[randomCat()],
       title: 'Eloquent JavaScript',
     },
     {
-      book_id: randomId(),
+      bookId: randomId(),
       category: categories[randomCat()],
       title: 'Pride and Prejudice',
     },

@@ -14,7 +14,7 @@ const BookList = ({ books }) => (
     </thead>
     <tbody>
       {books.map(({ bookId, title, category }) => (
-        <Book id={bookId} title={title} category={category} key={bookId} />
+        <Book bookId={bookId} title={title} category={category} key={bookId} />
       ))}
     </tbody>
   </table>
