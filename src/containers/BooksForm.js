@@ -8,6 +8,7 @@ class BooksForm extends Component {
       category: '',
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   categories = [
@@ -21,35 +22,34 @@ class BooksForm extends Component {
   ];
 
   handleChange(e) {
+    let name = e.target.name;
+    this.setState(Object.assign({}, this.state, { [name]: e.target.value }));
+  }
+
+  handleSubmit(e) {
     e.preventDefault();
-
-    const target = e.target;
-    const value = target.value;
-    const name = target.name;
-
-    console.log('input', name);
-
-    this.setState({
-      title: e.target.value,
-      category: e.target,
-    });
-    e.target.value = '';
+    console.log('A new book was submitted: ', this.state);
   }
 
   render() {
     return (
-      <form action="">
-        <input type="text" name="title" id="" />
-        <select name="categories" id="">
+      <form onSubmit={this.handleSubmit}>
+        <label htmlFor="title">Title</label>
+        <input
+          type="text"
+          name="title"
+          id="title"
+          onChange={this.handleChange}
+        />
+        <label htmlFor="category">Category</label>
+        <select name="category" id="cat" onChange={this.handleChange}>
           {this.categories.map((cat) => (
             <option value={cat} key={cat}>
               {cat}
             </option>
           ))}
         </select>
-        <button type="submit" onClick={this.handleChange}>
-          Submit
-        </button>
+        <input type="submit" value="Submit" />
       </form>
     );
   }
