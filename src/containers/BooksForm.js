@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createBook } from '../actions/index';
-import { randomCat } from '../randomGen/random';
 
 class BooksForm extends Component {
   constructor(props) {
     super(props);
     this.categories = [
+      '',
       'Action',
       'Biography',
       'History',
@@ -19,7 +19,7 @@ class BooksForm extends Component {
 
     this.initialState = {
       title: '',
-      category: this.categories[randomCat()],
+      category: this.categories[0],
     };
 
     this.state = {
@@ -32,7 +32,7 @@ class BooksForm extends Component {
   }
 
   handleChange(e) {
-    let { name, value } = e.target;
+    const { name, value } = e.target;
     this.setState({ [name]: value });
   }
 
@@ -40,20 +40,21 @@ class BooksForm extends Component {
     e.preventDefault();
     const { title, category } = this.state;
     const { createBook } = this.props;
-    console.log(this.state);
     if (title && category) {
       createBook(this.state);
       this.setState({
         title: '',
         category: '',
       });
+      e.target.title.value = '';
+      e.target.category.value = '';
     }
   }
 
-  mapDispatchToProps = (dispatch) => {
+  mapDispatchToProps(dispatch) {
     const book = this.props;
     return { createBook: () => dispatch(createBook(book)) };
-  };
+  }
 
   render() {
     return (
@@ -62,7 +63,7 @@ class BooksForm extends Component {
         <input type="text" name="title" onChange={this.handleChange} />
         <label htmlFor="category">Category</label>
         <select name="category" id="cat">
-          {this.categories.map((cat) => (
+          {this.categories.map(cat => (
             <option value={cat} key={cat}>
               {cat}
             </option>
@@ -74,8 +75,8 @@ class BooksForm extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => ({
-  createBook: (book) => {
+const mapDispatchToProps = dispatch => ({
+  createBook: book => {
     dispatch(createBook(book));
   },
 });
