@@ -63,6 +63,7 @@ Use your terminal and run the commands after each instruction.
 
 - [Microverse](https://www.microverse.org) software development school
 - [Raphael Noriode](https://github.com/Oghenebrume50) review of milestone-1
+- [Sérgio Torres](https://github.com/Torres-ssf) review of milestone-2
 
 [Up](#Table-of-Contents)
 
