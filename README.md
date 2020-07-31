@@ -62,6 +62,7 @@ Use your terminal and run the commands after each instruction.
 ## Acknowledgements
 
 - [Microverse](https://www.microverse.org) software development school
+- [Raphael Noriode](https://github.com/Oghenebrume50) review of milestone-1
 
 [Up](#Table-of-Contents)
 
@@ -79,9 +80,9 @@ Use your terminal and run the commands after each instruction.
 ### Abdusaid Abdurasulov
 
 - Github: [@Abdusaid10](https://github.com/Abdusaid10)
-- Twitter: []()
-- Linkedin: []()
-- AngelList: []()
+- Twitter: [@abdusaid_A](https://twitter.com/abdusaid_a)
+- Linkedin: [Abdusaid Abdurasulov](linkedin.com/in/abdusaid)
+- AngelList: [Abdusaid Abdurasulov](https://angel.co/u/abdusaid-abdurasulov)
 
 ## 🤝 Contributing
 
