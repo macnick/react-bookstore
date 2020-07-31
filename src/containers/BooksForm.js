@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { createBook } from '../actions/index';
 
 class BooksForm extends Component {
   constructor(props) {
     super(props);
-    this.state = {
+    state = {
       title: '',
       category: '',
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.mapDispatchToProps = this.mapDispatchToProps.bind(this);
   }
 
   categories = [
@@ -22,14 +25,21 @@ class BooksForm extends Component {
   ];
 
   handleChange(e) {
-    let name = e.target.name;
-    this.setState(Object.assign({}, this.state, { [name]: e.target.value }));
+    let { name, value } = e.target;
+    this.setState({ [name]: value });
   }
 
   handleSubmit(e) {
     e.preventDefault();
+    this.props.createBook(this.state);
     console.log('A new book was submitted: ', this.state);
+    this.setState({ title: '', category: '' });
   }
+
+  mapDispatchToProps = (dispatch) => {
+    const book = this.props;
+    return { createBook: () => dispatch(createBook(book)) };
+  };
 
   render() {
     return (
@@ -55,4 +65,4 @@ class BooksForm extends Component {
   }
 }
 
-export default BooksForm;
+export default connect(null, this.mapDispatchToProps)(BooksForm);
