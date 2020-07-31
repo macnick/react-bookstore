@@ -1,11 +1,28 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createBook } from '../actions/index';
+import { randomCat } from '../randomGen/random';
 
 class BooksForm extends Component {
   constructor(props) {
     super(props);
-    state = {
+    this.categories = [
+      'Action',
+      'Biography',
+      'History',
+      'Horror',
+      'Kids',
+      'Learning',
+      'Sci-Fi',
+    ];
+
+    this.initialState = {
+      title: '',
+      category: this.categories[randomCat()],
+    };
+
+    this.state = {
       title: '',
       category: '',
     };
@@ -14,16 +31,6 @@ class BooksForm extends Component {
     this.mapDispatchToProps = this.mapDispatchToProps.bind(this);
   }
 
-  categories = [
-    'Action',
-    'Biography',
-    'History',
-    'Horror',
-    'Kids',
-    'Learning',
-    'Sci-Fi',
-  ];
-
   handleChange(e) {
     let { name, value } = e.target;
     this.setState({ [name]: value });
@@ -31,9 +38,16 @@ class BooksForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.createBook(this.state);
-    console.log('A new book was submitted: ', this.state);
-    this.setState({ title: '', category: '' });
+    const { title, category } = this.state;
+    const { createBook } = this.props;
+    console.log(this.state);
+    if (title && category) {
+      createBook(this.state);
+      this.setState({
+        title: '',
+        category: '',
+      });
+    }
   }
 
   mapDispatchToProps = (dispatch) => {
@@ -43,16 +57,11 @@ class BooksForm extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit} onChange={this.handleChange}>
         <label htmlFor="title">Title</label>
-        <input
-          type="text"
-          name="title"
-          id="title"
-          onChange={this.handleChange}
-        />
+        <input type="text" name="title" onChange={this.handleChange} />
         <label htmlFor="category">Category</label>
-        <select name="category" id="cat" onChange={this.handleChange}>
+        <select name="category" id="cat">
           {this.categories.map((cat) => (
             <option value={cat} key={cat}>
               {cat}
@@ -65,4 +74,14 @@ class BooksForm extends Component {
   }
 }
 
-export default connect(null, this.mapDispatchToProps)(BooksForm);
+const mapDispatchToProps = (dispatch) => ({
+  createBook: (book) => {
+    dispatch(createBook(book));
+  },
+});
+
+BooksForm.propTypes = {
+  createBook: PropTypes.func.isRequired,
+};
+
+export default connect(null, mapDispatchToProps)(BooksForm);
