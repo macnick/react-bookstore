@@ -4,10 +4,7 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import App from './components/App';
 import reducer from './reducers/index';
-
-const randomId = () => Math.floor(Math.random() * 1000);
-
-const randomCat = () => Math.floor(Math.random() * 7);
+import { randomId, randomCat } from './randomGen/random';
 
 const categories = [
   'Action',
@@ -50,5 +47,5 @@ ReactDOM.render(
   <Provider store={store}>
     <App />
   </Provider>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );

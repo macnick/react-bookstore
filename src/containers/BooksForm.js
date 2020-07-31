@@ -1,13 +1,27 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { createBook }  from '../actions/index';
-
-const randomId = () => Math.floor(Math.random() * 1000);
+import { createBook } from '../actions/index';
+import { ramdomId, randomCat } from '../randomGen/random';
 
 class BooksForm extends Component {
   constructor(props) {
     super(props);
+    this.categories = [
+      'Action',
+      'Biography',
+      'History',
+      'Horror',
+      'Kids',
+      'Learning',
+      'Sci-Fi',
+    ];
+
+    this.initialState = {
+      title: '',
+      category: this.categories[randomCat()],
+    };
+
     this.state = {
       title: '',
       category: '',
@@ -16,49 +30,38 @@ class BooksForm extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  categories = [
-    'Action',
-    'Biography',
-    'History',
-    'Horror',
-    'Kids',
-    'Learning',
-    'Sci-Fi',
-  ];
-
   handleChange(e) {
-    let name = e.target.name;
+    const { name } = e.target;
+    // eslint-disable-next-line prefer-object-spread
     this.setState(Object.assign({}, this.state, { [name]: e.target.value }));
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    let book = {
-      title: this.state.title,
-      category: this.state.category,
-      bookId: randomId(),
+    const { title, category } = this.state;
+    const { createBook } = this.props;
+    console.log(this.state);
+    if (title && category) {
+      createBook(this.state);
+      this.setState({
+        title: '',
+        category: '',
+      });
     }
-    console.log(book);
-    this.props.createBook(book);
-    this.setState({
-      title: '',
-      category: '',
-    }); 
   }
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit} onChange={this.handleChange}>
         <label htmlFor="title">Title</label>
         <input
           type="text"
           name="title"
-          id="title"
           onChange={this.handleChange}
         />
         <label htmlFor="category">Category</label>
-        <select name="category" id="cat" onChange={this.handleChange}>
-          {this.categories.map((cat) => (
+        <select name="category" id="cat">
+          {this.categories.map(cat => (
             <option value={cat} key={cat}>
               {cat}
             </option>
@@ -70,16 +73,14 @@ class BooksForm extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    createBook: (book) => {
-      dispatch(createBook(book));
-    }
-  }
-}
+const mapDispatchToProps = dispatch => ({
+  createBook: book => {
+    dispatch(createBook(book));
+  },
+});
 
 BooksForm.protoTypes = {
   createBook: PropTypes.func.isRequired,
-}
+};
 
 export default connect(null, mapDispatchToProps)(BooksForm);
