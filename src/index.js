@@ -5,7 +5,8 @@ import { Provider } from 'react-redux';
 import App from './components/App';
 import reducer from './reducers/index';
 import { randomId, randomCat } from './randomGen/random';
-import './main.css';
+import './styles/reset.css';
+import './styles/main.css';
 
 const categories = [
   'Action',
@@ -49,5 +50,5 @@ ReactDOM.render(
   <Provider store={store}>
     <App />
   </Provider>,
-  document.getElementById('root'),
+  document.getElementById('root')
 );

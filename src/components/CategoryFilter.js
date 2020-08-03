@@ -17,16 +17,22 @@ const CategoryFilter = ({ onFilter }) => {
   };
 
   return (
-    <select name="category" id="cat" onChange={handleFilter}>
-      <option value="All" key="All">
-        All
-      </option>
-      {categories.map(cat => (
-        <option value={cat} key={cat}>
-          {cat}
-        </option>
-      ))}
-    </select>
+    <div className="header">
+      <div id="logo">Bookstore CMS</div>
+      <div id="select">
+        <label htmlFor="category">Categories: </label>
+        <select name="category" id="cat" onChange={handleFilter}>
+          <option value="All" key="All">
+            All
+          </option>
+          {categories.map((cat) => (
+            <option value={cat} key={cat}>
+              {cat}
+            </option>
+          ))}
+        </select>
+      </div>
+    </div>
   );
 };
 
