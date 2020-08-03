@@ -8,7 +8,7 @@ import CategoryFilter from '../components/CategoryFilter';
 const BookList = ({
   books, removeBook, filter, changeFilter,
 }) => (
-  <div>
+  <div className="container">
     <CategoryFilter onFilter={filter => changeFilter(filter)} />
     <table>
       <thead>
