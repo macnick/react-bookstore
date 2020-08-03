@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Book = ({ book, removeBook }) => (
-  <div class="line">
+  <div className="line">
     <div>
       <div id="category">{book.category}</div>
       <div id="title">{book.title}</div>

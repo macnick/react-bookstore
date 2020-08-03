@@ -58,25 +58,35 @@ class BooksForm extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit} onChange={this.handleChange}>
-        <label htmlFor="title">Title</label>
-        <input type="text" name="title" onChange={this.handleChange} />
-        <label htmlFor="category">Category</label>
-        <select name="category" id="cat">
-          {this.categories.map(cat => (
-            <option value={cat} key={cat}>
-              {cat}
+      <div>
+        <hr />
+        <div id="add">Add new book</div>
+        <form onSubmit={this.handleSubmit} onChange={this.handleChange}>
+          <input
+            type="text"
+            name="title"
+            placeholder="Book title"
+            onChange={this.handleChange}
+          />
+          <select name="category" id="cat">
+            <option value="Category" selected>
+              Category
             </option>
-          ))}
-        </select>
-        <input type="submit" value="Submit" />
-      </form>
+            {this.categories.map((cat) => (
+              <option value={cat} key={cat}>
+                {cat}
+              </option>
+            ))}
+          </select>
+          <input type="submit" value="ADD BOOK" />
+        </form>
+      </div>
     );
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-  createBook: book => {
+const mapDispatchToProps = (dispatch) => ({
+  createBook: (book) => {
     dispatch(createBook(book));
   },
 });
