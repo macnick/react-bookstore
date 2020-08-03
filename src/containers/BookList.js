@@ -20,7 +20,7 @@ const BookList = ({ books, removeBook, filter, changeFilter }) => (
           <th>Book ID</th>
           <th>Title</th>
           <th>Category</th>
-          <th>Hello : {}</th>
+          <th>Hello : {filter}</th>
         </tr>
       </thead>
       <tbody>
