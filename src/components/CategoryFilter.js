@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const CategoryFilter = ({ onFilter, filter }) => {
+const CategoryFilter = ({ onFilter }) => {
   const categories = [
     'Action',
     'Biography',
@@ -15,13 +15,15 @@ const CategoryFilter = ({ onFilter, filter }) => {
     <select
       name="category"
       id="cat"
-      onChange={e => {
+      onChange={(e) => {
         e.preventDefault();
-        onFilter(filter);
+        onFilter(e.target.value);
       }}
     >
-      <option value="All" key="All">All</option>
-      {categories.map(cat => (
+      <option value="All" key="All">
+        All
+      </option>
+      {categories.map((cat) => (
         <option value={cat} key={cat}>
           {cat}
         </option>
@@ -32,6 +34,6 @@ const CategoryFilter = ({ onFilter, filter }) => {
 
 CategoryFilter.propTypes = {
   onFilter: PropTypes.func.isRequired,
-  filter: PropTypes.string.isRequired,
 };
+
 export default CategoryFilter;
