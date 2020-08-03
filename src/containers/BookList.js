@@ -8,12 +8,7 @@ import CategoryFilter from '../components/CategoryFilter';
 const BookList = ({ books, removeBook, filter, changeFilter }) => (
   <div>
     {console.log(filter)}
-    <CategoryFilter
-      onFilter={(filter) => {
-        changeFilter(filter);
-        console.log(changeFilter(filter));
-      }}
-    />
+    <CategoryFilter onFilter={(filter) => changeFilter(filter)} />
     <table>
       <thead>
         <tr>
@@ -25,7 +20,9 @@ const BookList = ({ books, removeBook, filter, changeFilter }) => (
       </thead>
       <tbody>
         {books
-          .filter((book) => book.category === 'History')
+          .filter((book) =>
+            filter === 'All' ? true : book.category === filter
+          )
           .map((book) => (
             <Book book={book} key={book.bookId} removeBook={removeBook} />
           ))}
@@ -43,6 +40,7 @@ const BookList = ({ books, removeBook, filter, changeFilter }) => (
 
 const mapStateToProps = (state) => ({
   books: state.books,
+  filter: state.filter,
 });
 
 const mapDispatchToProps = (dispatch) => ({

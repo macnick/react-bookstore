@@ -11,15 +11,13 @@ const CategoryFilter = ({ onFilter }) => {
     'Learning',
     'Sci-Fi',
   ];
+
+  const handleFilter = ({ target }) => {
+    onFilter(target.value);
+  };
+
   return (
-    <select
-      name="category"
-      id="cat"
-      onChange={(e) => {
-        e.preventDefault();
-        onFilter(e.target.value);
-      }}
-    >
+    <select name="category" id="cat" onChange={handleFilter}>
       <option value="All" key="All">
         All
       </option>
