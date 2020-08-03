@@ -1,7 +1,7 @@
 import React from 'react';
-import ProptTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
-const CategoryFilter = ({onFilter, filter }) => {
+const CategoryFilter = ({ onFilter, filter }) => {
   const categories = [
     'Action',
     'Biography',
@@ -31,6 +31,7 @@ const CategoryFilter = ({onFilter, filter }) => {
 };
 
 CategoryFilter.propTypes = {
-  onFilter: ProptTypes.func.isRequired,
+  onFilter: PropTypes.func.isRequired,
+  filter: PropTypes.string.isRequired,
 };
 export default CategoryFilter;
