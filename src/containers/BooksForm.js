@@ -47,8 +47,7 @@ class BooksForm extends Component {
         title: '',
         category: '',
       });
-      e.target.title.value = '';
-      e.target.category.value = '';
+      e.target.reset();
     }
   }
 
@@ -64,7 +63,7 @@ class BooksForm extends Component {
         <input type="text" name="title" onChange={this.handleChange} />
         <label htmlFor="category">Category</label>
         <select name="category" id="cat">
-          {this.categories.map(cat => (
+          {this.categories.map((cat) => (
             <option value={cat} key={cat}>
               {cat}
             </option>
@@ -76,8 +75,8 @@ class BooksForm extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-  createBook: book => {
+const mapDispatchToProps = (dispatch) => ({
+  createBook: (book) => {
     dispatch(createBook(book));
   },
 });
