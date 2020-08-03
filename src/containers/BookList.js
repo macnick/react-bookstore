@@ -14,27 +14,34 @@ const BookList = ({ books, removeBook, filter }) => (
           <th>Book ID</th>
           <th>Title</th>
           <th>Category</th>
+          <th>Hello : {filter}</th>
         </tr>
       </thead>
       <tbody>
-        {books.map(book => (
+        {books
+          .filter((book) => book.category === 'History')
+          .map((book) => (
+            <Book book={book} key={book.bookId} removeBook={removeBook} />
+          ))}
+        {/* {books.map(book => (
           <Book
             book={book}
             key={book.bookId}
             removeBook={removeBook}
           />
-        ))}
+        ))} */}
       </tbody>
     </table>
   </div>
 );
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   books: state.books,
 });
 
-const mapDispatchToProps = dispatch => ({
-  removeBook: book => dispatch(removeBook(book)),
+const mapDispatchToProps = (dispatch) => ({
+  removeBook: (book) => dispatch(removeBook(book)),
+  changeFilter: (filter) => dispatch(changeFilter(filter)),
 });
 
 BookList.propTypes = {
@@ -43,7 +50,7 @@ BookList.propTypes = {
       bookId: PropTypes.number.isRequired,
       title: PropTypes.string.isRequired,
       category: PropTypes.string.isRequired,
-    }),
+    })
   ).isRequired,
   removeBook: PropTypes.func.isRequired,
   filter: PropTypes.string.isRequired,
