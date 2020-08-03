@@ -8,17 +8,15 @@ import CategoryFilter from '../components/CategoryFilter';
 const BookList = ({ books, removeBook, filter, changeFilter }) => (
   <div>
     <CategoryFilter onFilter={(filter) => changeFilter(filter)} />
-    <table className="container">
-      <tbody>
-        {books
-          .filter((book) =>
-            filter === 'All' ? true : book.category === filter
-          )
-          .map((book) => (
-            <Book book={book} key={book.bookId} removeBook={removeBook} />
-          ))}
-      </tbody>
-    </table>
+    <div className="container">
+      {books
+        .filter((book) =>
+          filter === 'All' ? true : book.category === filter
+        )
+        .map((book) => (
+          <Book book={book} key={book.bookId} removeBook={removeBook} />
+        ))}
+    </div>
   </div>
 );
 

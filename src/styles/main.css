@@ -2,6 +2,12 @@
   font-family: Montserrat;
   src: url(../fonts/Montserrat/Montserrat-Bold.ttf);
 }
+@font-face {
+  font-family: RobotoSlab;
+  src: url(../fonts/Roboto_Slab/RobotoSlab-VariableFont_wght.ttf);
+}
+
+
 
 body {
   margin: 0;
@@ -27,17 +33,46 @@ body {
   margin: 41px 100px 38px 100px;
 }
 .container {
-  display: flex;
+  display: block;
   justify-content: center;
-  margin: 50px 100px 50px 100px;
+  margin: 0 100px;
 }
 
-.line {
+.line { 
+  display: flex; 
+  flex-direction: row;
+  justify-content: space-between;
   border: 1px solid #e8e8e8;
   border-radius: 4px;
   background-color: #fff;
-  padding: 80px 30px;
-  margin: 20px 100px;
+  padding: 40px 30px;
+  margin-bottom: 10px;
+}
+
+.line > td {
+  padding: 25px;
+}
+
+#title, #category {
+  color: #121212;
+}
+#title {
+  font-style: RobotSlab-bold;
+  font-size: 22px;
+  letter-spacing: -0.2px;
+}
+
+#category {
+  font-style: Montserrat-bold;
+  font-size: 14px;
+}
+
+.container button {
+  background-color: #0290ff;
+  color: #fff;
+  border-radius: 3px;
+  border: none;
+  padding: 10px;
 }
 
 #logo {
