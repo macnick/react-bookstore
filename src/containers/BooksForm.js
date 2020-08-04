@@ -47,8 +47,7 @@ class BooksForm extends Component {
         title: '',
         category: '',
       });
-      e.target.title.value = '';
-      e.target.category.value = '';
+      e.target.reset();
     }
   }
 

@@ -39,6 +39,7 @@ const initialState = {
       title: 'Pride and Prejudice',
     },
   ],
+  filter: 'All',
 };
 
 const store = createStore(reducer, initialState);
