@@ -21,7 +21,7 @@ const CategoryFilter = ({ onFilter }) => {
       <div id="logo">Bookstore CMS</div>
       <div id="select">
         <label htmlFor="category">Categories: </label>
-        <select name="category" id="cat" onChange={handleFilter}>
+        <select name="category" id="head-select" onChange={handleFilter}>
           <option value="All" key="All">
             All
           </option>

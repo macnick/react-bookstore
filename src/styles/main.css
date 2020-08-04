@@ -104,8 +104,8 @@ form {
 }
 
 input[type='text'],
-#cat {
-  padding: 13px 17px;
+select {
+  padding: 12px 17px;
   border: 1px solid #888;
   border-radius: 4px;
   font-family: Montserrat-reg;
@@ -119,9 +119,6 @@ input[type='text'] {
 #cat {
   width: 30%;
 }
-/* #select {
-  width: 40%;
-} */
 
 input[type='submit'] {
   width: 14%;
@@ -129,5 +126,5 @@ input[type='submit'] {
   color: #fff;
   border-radius: 3px;
   border: none;
-  padding: 10px;
+  padding: 9px;
 }
