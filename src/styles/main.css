@@ -2,10 +2,12 @@
   font-family: Montserrat;
   src: url(../fonts/Montserrat/Montserrat-Bold.ttf);
 }
+
 @font-face {
   font-family: Montserrat-reg;
   src: url(../fonts/Montserrat/Montserrat-Regular.ttf);
 }
+
 @font-face {
   font-family: RobotoSlab;
   src: url(../fonts/Roboto_Slab/static/RobotoSlab-Bold.ttf);
@@ -25,7 +27,7 @@ hr {
 .header {
   display: flex;
   justify-content: space-between;
-  font-family: Montserrat;
+  font-family: Montserrat, Helvetica, sans-serif;
   font-size: larger;
   margin: 41px 5% 38px 5%;
 }
@@ -57,14 +59,15 @@ hr {
 }
 
 #title {
-  font-family: RobotSlab;
+  font-family: RobotSlab, serif;
   font-size: 22px;
   letter-spacing: -0.2px;
 }
 
 #category {
-  font-style: Montserrat;
+  font-family: Montserrat, Helvetica, sans-serif;
   font-size: 14px;
+  color: #999;
 }
 
 .container button {
@@ -81,7 +84,7 @@ hr {
 }
 
 #select {
-  font-family: Montserrat;
+  font-family: Montserrat, Helvetica, sans-serif;
   font-size: 13px;
   letter-spacing: 1.9px;
   text-transform: uppercase;
@@ -89,7 +92,7 @@ hr {
 }
 
 #add {
-  font-family: Monserrat;
+  font-family: Montserrat, Helvetica, sans-serif;
   font-size: 20px;
   letter-spacing: -0.18px;
   text-transform: uppercase;
@@ -108,10 +111,11 @@ select {
   padding: 12px 17px;
   border: 1px solid #888;
   border-radius: 4px;
-  font-family: Montserrat-reg;
+  font-family: Montserrat-reg, Helvetica, sans-serif;
   font-size: 16px;
   color: #c4c4c4;
 }
+
 input[type='text'] {
   width: 50%;
 }

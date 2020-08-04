@@ -20,7 +20,7 @@ const CategoryFilter = ({ onFilter }) => {
     <div className="header">
       <div id="logo">Bookstore CMS</div>
       <div id="select">
-        <label htmlFor="category">Categories: </label>
+        Categories{' '}
         <select name="category" id="head-select" onChange={handleFilter}>
           <option value="All" key="All">
             All
