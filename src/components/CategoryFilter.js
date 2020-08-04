@@ -20,12 +20,12 @@ const CategoryFilter = ({ onFilter }) => {
     <div className="header">
       <div id="logo">Bookstore CMS</div>
       <div id="select">
-        <label htmlFor="category">Categories: </label>
+        <label htmlFor="head-select">Categories: </label>
         <select name="category" id="head-select" onChange={handleFilter}>
           <option value="All" key="All">
             All
           </option>
-          {categories.map((cat) => (
+          {categories.map(cat => (
             <option value={cat} key={cat}>
               {cat}
             </option>
