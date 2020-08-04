@@ -25,7 +25,7 @@ const CategoryFilter = ({ onFilter }) => {
           <option value="All" key="All">
             All
           </option>
-          {categories.map((cat) => (
+          {categories.map(cat => (
             <option value={cat} key={cat}>
               {cat}
             </option>
