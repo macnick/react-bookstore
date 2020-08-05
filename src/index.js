@@ -5,6 +5,8 @@ import { Provider } from 'react-redux';
 import App from './components/App';
 import reducer from './reducers/index';
 import { randomId, randomCat } from './randomGen/random';
+import './styles/reset.css';
+import './styles/main.css';
 
 const categories = [
   'Action',

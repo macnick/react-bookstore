@@ -10,22 +10,13 @@ const BookList = ({
 }) => (
   <div>
     <CategoryFilter onFilter={filter => changeFilter(filter)} />
-    <table>
-      <thead>
-        <tr>
-          <th>Book ID</th>
-          <th>Title</th>
-          <th>Category</th>
-        </tr>
-      </thead>
-      <tbody>
-        {books
-          .filter(book => (filter === 'All' ? true : book.category === filter))
-          .map(book => (
-            <Book book={book} key={book.bookId} removeBook={removeBook} />
-          ))}
-      </tbody>
-    </table>
+    <div className="container">
+      {books
+        .filter(book => (filter === 'All' ? true : book.category === filter))
+        .map(book => (
+          <Book book={book} key={book.bookId} removeBook={removeBook} />
+        ))}
+    </div>
   </div>
 );
 
