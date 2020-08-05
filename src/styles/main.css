@@ -137,6 +137,7 @@ input[type='submit'] {
   form {
     flex-direction: column;
   }
+
   input[type='text'] {
     padding: 12px 4% 12px 4%;
     width: 92%;
