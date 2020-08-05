@@ -132,3 +132,19 @@ input[type='submit'] {
   border: none;
   padding: 9px;
 }
+
+@media only screen and (max-width: 780px) {
+  form {
+    flex-direction: column;
+  }
+  input[type='text'] {
+    padding: 12px 4% 12px 4%;
+    width: 92%;
+  }
+
+  input[type='submit'],
+  select {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
