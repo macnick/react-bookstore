@@ -21,11 +21,13 @@ class BooksForm extends Component {
     this.initialState = {
       title: '',
       category: this.categories[0],
+      author: '',
     };
 
     this.state = {
       title: '',
       category: '',
+      author: '',
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -46,6 +48,7 @@ class BooksForm extends Component {
       this.setState({
         title: '',
         category: '',
+        author: '',
       });
       e.target.reset();
     }
@@ -66,6 +69,12 @@ class BooksForm extends Component {
             type="text"
             name="title"
             placeholder="Book title"
+            onChange={this.handleChange}
+          />
+          <input
+            type="text"
+            name="author"
+            placeholder="Book author"
             onChange={this.handleChange}
           />
           <select name="category" id="cat">

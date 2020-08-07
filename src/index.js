@@ -2,9 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
+import { BrowserRouter as Router } from 'react-router-dom';
 import App from './components/App';
 import reducer from './reducers/index';
 import { randomId, randomCat } from './randomGen/random';
+import AppRouter from './AppRouter';
 import './styles/reset.css';
 import './styles/main.css';
 
@@ -48,7 +50,9 @@ const store = createStore(reducer, initialState);
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <Router>
+      <AppRouter />
+    </Router>
   </Provider>,
   document.getElementById('root'),
 );
