@@ -12,6 +12,7 @@ const books = (state = [], action) => {
           bookId: randomId(),
           title: action.book.title,
           category: action.book.category,
+          author: action.book.author,
         },
       ];
     case REMOVE_BOOK:

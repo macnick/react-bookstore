@@ -36,6 +36,7 @@ BookList.propTypes = {
       bookId: PropTypes.number.isRequired,
       title: PropTypes.string.isRequired,
       category: PropTypes.string.isRequired,
+      author: PropTypes.string.isRequired,
     }),
   ).isRequired,
   removeBook: PropTypes.func.isRequired,
