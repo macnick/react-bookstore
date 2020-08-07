@@ -6,6 +6,7 @@ const Book = ({ book, removeBook }) => (
     <div>
       <div id="category">{book.category}</div>
       <div id="title">{book.title}</div>
+      <div id="author">{book.author}</div>
     </div>
     <div>
       <button type="button" onClick={() => removeBook(book)}>
@@ -20,6 +21,7 @@ Book.propTypes = {
     bookId: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     category: PropTypes.string.isRequired,
+    author: PropTypes.string.isRequired,
   }).isRequired,
   removeBook: PropTypes.func.isRequired,
 };
