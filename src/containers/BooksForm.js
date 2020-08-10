@@ -1,8 +1,9 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createBook } from '../actions/index';
+import { create } from '../api-services/services';
 
 class BooksForm extends Component {
   constructor(props) {
@@ -29,6 +30,7 @@ class BooksForm extends Component {
       category: '',
       author: '',
     };
+
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.mapDispatchToProps = this.mapDispatchToProps.bind(this);
@@ -41,10 +43,15 @@ class BooksForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const { title, category } = this.state;
+    const { title, category, author } = this.state;
     const { createBook } = this.props;
     if (title && category) {
       createBook(this.state);
+      create({ title, category, author })
+        .then(this.state)
+        .catch(e => {
+          console.log(e);
+        });
       this.setState({
         title: '',
         category: '',
