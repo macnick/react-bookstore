@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 import App from './components/App';
 import reducer from './reducers/index';
 import { randomId, randomCat } from './randomGen/random';
 import { getBooks } from './api-services/services';
+import thunk from 'redux-thunk';
+import fetchBooks from './actions/async';
 import './styles/reset.css';
 import './styles/main.css';
 
@@ -20,13 +22,6 @@ const categories = [
   'Sci-Fi',
 ];
 
-const initialState = getBooks()
-  .then(response => {
-    JSON.parse(response.filt)
-  })
-  .catch(e => {
-    console.log(e);
-  });
 // const initialState = {
 //   books: [
 //     {
@@ -57,7 +52,11 @@ const initialState = getBooks()
 //   filter: 'All',
 // };
 
-const store = createStore(reducer, initialState);
+// console.log('INITIAL STATE', initialState);
+const store = createStore(reducer, applyMiddleware(thunk));
+store.subscribe(() => console.log(store));
+store.dispatch(fetchBooks());
+// console.log('Store:', store);
 
 ReactDOM.render(
   <Provider store={store}>
@@ -65,5 +64,5 @@ ReactDOM.render(
       <App />
     </Router>
   </Provider>,
-  document.getElementById('root'),
+  document.getElementById('root')
 );
