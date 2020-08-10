@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Book from '../components/Book';
 import { removeBook, changeFilter } from '../actions';
 import CategoryFilter from '../components/CategoryFilter';
+import { getBooks } from '../api-services/services';
 
 const BookList = ({
   books, removeBook, filter, changeFilter,
