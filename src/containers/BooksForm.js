@@ -85,7 +85,7 @@ class BooksForm extends Component {
             onChange={this.handleChange}
           />
           <select name="category" id="cat">
-            <option value="Category" selected>
+            <option value="Category" defaultValue>
               Category
             </option>
             {this.categories.map(cat => (

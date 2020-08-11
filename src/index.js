@@ -6,7 +6,6 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import thunk from 'redux-thunk';
 import App from './components/App';
 import reducer from './reducers/index';
-import { randomId, randomCat } from './randomGen/random';
 import { getBooks } from './api-services/services';
 import fetchBooks from './actions/async';
 import './styles/reset.css';
@@ -54,9 +53,9 @@ const categories = [
 
 // console.log('INITIAL STATE', initialState);
 const store = createStore(reducer, applyMiddleware(thunk));
-store.subscribe(() => console.log(store));
+store.subscribe(() => store.getState());
 store.dispatch(fetchBooks());
-// console.log('Store:', store);
+console.log('Store:', store);
 
 ReactDOM.render(
   <Provider store={store}>
