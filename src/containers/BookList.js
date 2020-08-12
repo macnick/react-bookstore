@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import fetchBooks from '../actions/async';
 import PropTypes from 'prop-types';
 import Book from '../components/Book';
 import { removeBook, changeFilter } from '../actions';
 import CategoryFilter from '../components/CategoryFilter';
-import fetchBooks from '../actions/async';
 
-const BookList = ({ books, removeBook, filter, changeFilter }) => {
+const BookList = ({ books, removeBook, filter, changeFilter, fetchBooks }) => {
+  useEffect(() => {
+    fetchBooks();
+  }, []);
+
   return (
     <div>
       <CategoryFilter onFilter={(filter) => changeFilter(filter)} />
@@ -56,6 +60,7 @@ BookList.propTypes = {
   loading: PropTypes.bool,
   error: PropTypes.string,
   fetchBooks: PropTypes.func.isRequired,
+  fetch: PropTypes.object,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(BookList);
