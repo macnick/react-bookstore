@@ -8,6 +8,6 @@ import fetchReducer from './fetch';
 //   books: books,
 //   filter: filter,
 // });
-const reducer = combineReducers({ bookList: fetchReducer });
+const reducer = combineReducers({ bookList: fetchReducer, filter: filter });
 
 export default reducer;

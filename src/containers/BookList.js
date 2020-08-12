@@ -6,8 +6,6 @@ import Book from '../components/Book';
 import { removeBook, changeFilter } from '../actions';
 import CategoryFilter from '../components/CategoryFilter';
 
-// const BookList = (props) => {
-//   console.log('props:', props);
 const BookList = ({ books, changeFilter, fetchBooks, filter, removeBook }) => {
   useEffect(() => {
     fetchBooks();
@@ -16,9 +14,7 @@ const BookList = ({ books, changeFilter, fetchBooks, filter, removeBook }) => {
   return (
     <div>
       <CategoryFilter onFilter={(filter) => changeFilter(filter)} />
-      <div>
-        Number of books: {books.length} - {filter}
-      </div>
+      <div>Number of books: {books.length}</div>
       <div className="container">
         {books
           .filter((book) =>
@@ -35,7 +31,7 @@ const BookList = ({ books, changeFilter, fetchBooks, filter, removeBook }) => {
 const mapStateToProps = (state) => {
   return {
     books: state.bookList.books,
-    filter: state.bookList.filter,
+    filter: state.filter,
   };
 };
 
@@ -47,22 +43,21 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-// BookList.propTypes = {
-//   books: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       bookId: PropTypes.number.isRequired,
-//       title: PropTypes.string.isRequired,
-//       category: PropTypes.string.isRequired,
-//       author: PropTypes.string.isRequired,
-//     })
-//   ).isRequired,
-//   removeBook: PropTypes.func.isRequired,
-//   changeFilter: PropTypes.func.isRequired,
-//   filter: PropTypes.string.isRequired,
-//   loading: PropTypes.bool,
-//   error: PropTypes.string,
-//   fetchBooks: PropTypes.func.isRequired,
-//   bookList: PropTypes.object,
-// };
+BookList.propTypes = {
+  books: PropTypes.arrayOf(
+    PropTypes.shape({
+      bookId: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired,
+      category: PropTypes.string.isRequired,
+      author: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  removeBook: PropTypes.func.isRequired,
+  changeFilter: PropTypes.func.isRequired,
+  filter: PropTypes.string.isRequired,
+  loading: PropTypes.bool,
+  error: PropTypes.string,
+  fetchBooks: PropTypes.func.isRequired,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(BookList);
