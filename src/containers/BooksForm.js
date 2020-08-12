@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { Component, useState } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createBook } from '../actions/index';
@@ -49,7 +49,7 @@ class BooksForm extends Component {
       createBook(this.state);
       create({ title, category, author })
         .then(this.state)
-        .catch(e => {
+        .catch((e) => {
           console.log(e);
         });
       this.setState({
@@ -88,7 +88,7 @@ class BooksForm extends Component {
             <option value="Category" defaultValue>
               Category
             </option>
-            {this.categories.map(cat => (
+            {this.categories.map((cat) => (
               <option value={cat} key={cat}>
                 {cat}
               </option>
@@ -101,8 +101,8 @@ class BooksForm extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-  createBook: book => {
+const mapDispatchToProps = (dispatch) => ({
+  createBook: (book) => {
     dispatch(createBook(book));
   },
 });

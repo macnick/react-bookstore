@@ -1,4 +1,3 @@
-import redux from 'redux';
 import { getBooks } from '../api-services/services';
 
 const FETCH_REQUEST = 'FETCH_REQUEST';
@@ -25,14 +24,15 @@ const fetchFailure = (error) => {
   };
 };
 
+// action creator
 const fetchBooks = () => {
   return function (dispatch) {
     dispatch(fetchRequest());
     getBooks()
-      .then(response => {
+      .then((response) => {
         dispatch(fetchSuccess(response.data));
       })
-      .catch(error => {
+      .catch((error) => {
         dispatch(fetchFailure(error.message));
       });
   };

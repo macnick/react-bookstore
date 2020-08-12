@@ -17,12 +17,11 @@ const fetchReducer = (state = initialState, action) => {
         loading: true,
       };
     case FETCH_SUCCESS:
-      console.log("INITIAL state", action.payload);
       return {
+        ...state,
         loading: false,
         books: action.payload,
         error: '',
-        filter: 'All',
       };
     case FETCH_FAILURE:
       return {

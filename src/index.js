@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore, applyMiddleware } from 'redux';
+// import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import { BrowserRouter as Router } from 'react-router-dom';
-import thunk from 'redux-thunk';
+import store from './reducers/index';
+// import { BrowserRouter as Router } from 'react-router-dom';
+// import thunk from 'redux-thunk';
 import App from './components/App';
-import reducer from './reducers/index';
-import { getBooks } from './api-services/services';
+// import reducer from './reducers/index';
+// import { getBooks } from './api-services/services';
 import fetchBooks from './actions/async';
 import './styles/reset.css';
 import './styles/main.css';
@@ -52,16 +53,14 @@ const categories = [
 // };
 
 // console.log('INITIAL STATE', initialState);
-const store = createStore(reducer, applyMiddleware(thunk));
+// const store = createStore(reducer, applyMiddleware(thunk));
 store.subscribe(() => store.getState());
 store.dispatch(fetchBooks());
-console.log('Store:', store);
+// console.log('Store:', books);
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router>
-      <App />
-    </Router>
+    <App />
   </Provider>,
   document.getElementById('root')
 );

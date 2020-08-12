@@ -1,39 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Book from '../components/Book';
 import { removeBook, changeFilter } from '../actions';
 import CategoryFilter from '../components/CategoryFilter';
-import { getBooks } from '../api-services/services';
 import fetchBooks from '../actions/async';
 
-const BookList = ({ books, removeBook, filter, changeFilter, fetchBooks }) => {
-  // const [booksList, setBooks] = useState([]);
-  // booksList.push(books);
-
-  // useEffect(() => {
-  //   // fetchBooks();
-  //   retrieveBooks();
-  // }, []);
-
-  // const retrieveBooks = () => {
-  //   getBooks()
-  //     .then((response) => {
-  //       setBooks(response.data);
-  //       console.log(response.data);
-  //     })
-  //     .catch((e) => {
-  //       console.log(e);
-  //     });
-  // };
-
-  // // const refreshList = () => {
-  //   retrieveBooks();
-  // };
-
+const BookList = ({ books, removeBook, filter, changeFilter }) => {
   return (
     <div>
       <CategoryFilter onFilter={(filter) => changeFilter(filter)} />
+      <div>
+        Number of books: {books.length} - {filter}
+      </div>
       <div className="container">
         {books
           .filter((book) =>
@@ -47,16 +26,20 @@ const BookList = ({ books, removeBook, filter, changeFilter, fetchBooks }) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  books: state.books,
-  filter: state.filter,
-});
+const mapStateToProps = (state) => {
+  return {
+    books: state.books,
+    filter: state.filter,
+  };
+};
 
-const mapDispatchToProps = (dispatch) => ({
-  removeBook: (book) => dispatch(removeBook(book)),
-  changeFilter: (filter) => dispatch(changeFilter(filter)),
-  fetchBooks: () => dispatch(fetchBooks()),
-});
+const mapDispatchToProps = (dispatch) => {
+  return {
+    removeBook: (book) => dispatch(removeBook(book)),
+    changeFilter: (filter) => dispatch(changeFilter(filter)),
+    fetchBooks: () => dispatch(fetchBooks()),
+  };
+};
 
 BookList.propTypes = {
   books: PropTypes.arrayOf(
@@ -70,6 +53,8 @@ BookList.propTypes = {
   removeBook: PropTypes.func.isRequired,
   changeFilter: PropTypes.func.isRequired,
   filter: PropTypes.string.isRequired,
+  loading: PropTypes.bool,
+  error: PropTypes.string,
   fetchBooks: PropTypes.func.isRequired,
 };
 
