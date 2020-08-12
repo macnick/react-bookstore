@@ -6,7 +6,9 @@ import Book from '../components/Book';
 import { removeBook, changeFilter } from '../actions';
 import CategoryFilter from '../components/CategoryFilter';
 
-const BookList = ({ books, removeBook, filter, changeFilter, fetchBooks }) => {
+// const BookList = (props) => {
+//   console.log('props:', props);
+const BookList = ({ books, changeFilter, fetchBooks, filter, removeBook }) => {
   useEffect(() => {
     fetchBooks();
   }, []);
@@ -32,8 +34,8 @@ const BookList = ({ books, removeBook, filter, changeFilter, fetchBooks }) => {
 
 const mapStateToProps = (state) => {
   return {
-    books: state.books,
-    filter: state.filter,
+    books: state.bookList.books,
+    filter: state.bookList.filter,
   };
 };
 
@@ -45,22 +47,22 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-BookList.propTypes = {
-  books: PropTypes.arrayOf(
-    PropTypes.shape({
-      bookId: PropTypes.number.isRequired,
-      title: PropTypes.string.isRequired,
-      category: PropTypes.string.isRequired,
-      author: PropTypes.string.isRequired,
-    })
-  ).isRequired,
-  removeBook: PropTypes.func.isRequired,
-  changeFilter: PropTypes.func.isRequired,
-  filter: PropTypes.string.isRequired,
-  loading: PropTypes.bool,
-  error: PropTypes.string,
-  fetchBooks: PropTypes.func.isRequired,
-  fetch: PropTypes.object,
-};
+// BookList.propTypes = {
+//   books: PropTypes.arrayOf(
+//     PropTypes.shape({
+//       bookId: PropTypes.number.isRequired,
+//       title: PropTypes.string.isRequired,
+//       category: PropTypes.string.isRequired,
+//       author: PropTypes.string.isRequired,
+//     })
+//   ).isRequired,
+//   removeBook: PropTypes.func.isRequired,
+//   changeFilter: PropTypes.func.isRequired,
+//   filter: PropTypes.string.isRequired,
+//   loading: PropTypes.bool,
+//   error: PropTypes.string,
+//   fetchBooks: PropTypes.func.isRequired,
+//   bookList: PropTypes.object,
+// };
 
 export default connect(mapStateToProps, mapDispatchToProps)(BookList);

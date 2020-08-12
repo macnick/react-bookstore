@@ -1,6 +1,13 @@
 import { CHANGE_FILTER } from '../actions/index';
 
-const filter = (state = 'All', action) => {
+const initialState = {
+  loading: false,
+  books: [],
+  error: '',
+  filter: 'All',
+};
+
+const filter = (state = initialState, action) => {
   switch (action.type) {
     case CHANGE_FILTER:
       return action.category;

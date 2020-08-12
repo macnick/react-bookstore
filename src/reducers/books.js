@@ -16,7 +16,7 @@ const books = (state = [], action) => {
         },
       ];
     case REMOVE_BOOK:
-      return state.filter(book => book.bookId !== action.bookId);
+      return state.filter((book) => book.bookId !== action.bookId);
     default:
       return state;
   }
