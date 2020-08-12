@@ -54,7 +54,7 @@ const categories = [
 
 // console.log('INITIAL STATE', initialState);
 // const store = createStore(reducer, applyMiddleware(thunk));
-store.subscribe(() => store.getState());
+// store.subscribe(() => store.getState());
 store.dispatch(fetchBooks());
 // console.log('Store:', books);
 
