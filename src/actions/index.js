@@ -7,10 +7,10 @@ const createBook = book => ({
   book,
 });
 
-const removeBook = book => ({
-  type: REMOVE_BOOK,
-  bookId: book.bookId,
-});
+// const removeBook = book => ({
+//   type: REMOVE_BOOK,
+//   id: book.id,
+// });
 
 const changeFilter = category => ({
   type: CHANGE_FILTER,
@@ -19,7 +19,7 @@ const changeFilter = category => ({
 
 export {
   createBook,
-  removeBook,
+  // removeBook,
   changeFilter,
   CHANGE_FILTER,
 };

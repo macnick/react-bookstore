@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { remove } from '../api-services/services';
 
 const Book = ({ book, removeBook }) => (
   <div className="line">
@@ -9,7 +10,12 @@ const Book = ({ book, removeBook }) => (
       <div id="author">{book.author}</div>
     </div>
     <div>
-      <button type="button" onClick={() => removeBook(book)}>
+      <button
+        type="button"
+        onClick={() => {
+          removeBook(book);
+        }}
+      >
         Remove Book
       </button>
     </div>
@@ -18,7 +24,7 @@ const Book = ({ book, removeBook }) => (
 
 Book.propTypes = {
   book: PropTypes.shape({
-    bookId: PropTypes.number.isRequired,
+    id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     category: PropTypes.string.isRequired,
     author: PropTypes.string.isRequired,

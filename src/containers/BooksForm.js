@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createBook } from '../actions/index';
 import { create } from '../api-services/services';
-import fetchBooks from '../actions/async';
+import { fetchBooks } from '../actions/async';
 
 class BooksForm extends Component {
   constructor(props) {
@@ -47,6 +47,7 @@ class BooksForm extends Component {
     const { title, category, author } = this.state;
     const { createBook } = this.props;
     if (title && category) {
+      this.props.fetchBooks()
       createBook(this.state);
       create({ title, category, author })
         .then(this.state)
@@ -59,13 +60,15 @@ class BooksForm extends Component {
         author: '',
       });
       e.target.reset();
-      this.props.fetchBooks();
     }
   }
 
   mapDispatchToProps(dispatch) {
     const book = this.props;
-    return { createBook: () => dispatch(createBook(book)) };
+    return {
+      createBook: () => dispatch(createBook(book)),
+      fetchBooks: () => dispatch(fetchBooks()),
+    };
   }
 
   render() {
