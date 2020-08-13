@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { createBook } from '../actions/index';
+import { fetchBooks, createBook } from '../actions/async';
 
 class BooksForm extends Component {
   constructor(props) {
@@ -21,12 +21,15 @@ class BooksForm extends Component {
     this.initialState = {
       title: '',
       category: this.categories[0],
+      author: '',
     };
 
     this.state = {
       title: '',
       category: '',
+      author: '',
     };
+
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.mapDispatchToProps = this.mapDispatchToProps.bind(this);
@@ -39,13 +42,14 @@ class BooksForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const { title, category } = this.state;
+    const { title, category, author } = this.state;
     const { createBook } = this.props;
-    if (title && category) {
+    if (title && category && author) {
       createBook(this.state);
       this.setState({
         title: '',
         category: '',
+        author: '',
       });
       e.target.reset();
     }
@@ -53,7 +57,10 @@ class BooksForm extends Component {
 
   mapDispatchToProps(dispatch) {
     const book = this.props;
-    return { createBook: () => dispatch(createBook(book)) };
+    return {
+      createBook: () => dispatch(createBook(book)),
+      fetchBooks: () => dispatch(fetchBooks()),
+    };
   }
 
   render() {
@@ -68,8 +75,14 @@ class BooksForm extends Component {
             placeholder="Book title"
             onChange={this.handleChange}
           />
+          <input
+            type="text"
+            name="author"
+            placeholder="Book author"
+            onChange={this.handleChange}
+          />
           <select name="category" id="cat">
-            <option value="Category" selected>
+            <option value="Category" defaultValue>
               Category
             </option>
             {this.categories.map(cat => (
@@ -88,6 +101,9 @@ class BooksForm extends Component {
 const mapDispatchToProps = dispatch => ({
   createBook: book => {
     dispatch(createBook(book));
+  },
+  fetchBooks: () => {
+    dispatch(fetchBooks());
   },
 });
 

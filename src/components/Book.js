@@ -6,9 +6,15 @@ const Book = ({ book, removeBook }) => (
     <div>
       <div id="category">{book.category}</div>
       <div id="title">{book.title}</div>
+      <div id="author">{book.author}</div>
     </div>
     <div>
-      <button type="button" onClick={() => removeBook(book)}>
+      <button
+        type="button"
+        onClick={() => {
+          removeBook(book);
+        }}
+      >
         Remove Book
       </button>
     </div>
@@ -17,9 +23,10 @@ const Book = ({ book, removeBook }) => (
 
 Book.propTypes = {
   book: PropTypes.shape({
-    bookId: PropTypes.number.isRequired,
+    id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     category: PropTypes.string.isRequired,
+    author: PropTypes.string.isRequired,
   }).isRequired,
   removeBook: PropTypes.func.isRequired,
 };
