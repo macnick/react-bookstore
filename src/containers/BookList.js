@@ -17,7 +17,7 @@ const BookList = ({
   return (
     <div>
       <CategoryFilter onFilter={filter => changeFilter(filter)} />
-      <div>
+      <div className="select">
         Number of books:
         {books.length}
       </div>

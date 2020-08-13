@@ -10,12 +10,12 @@ const REMOVE_SUCCESS = 'REMOVE_SUCCESS';
 const REMOVE_FAILURE = 'REMOVE_FAILURE';
 
 // eslint-disable-next-line no-unused-vars
-const createSuccess = book => ({
+const createSuccess = (book) => ({
   type: CREATE_SUCCESS,
   book,
 });
 
-const createFailure = error => ({
+const createFailure = (error) => ({
   type: CREATE_FAILURE,
   payload: error,
 });
@@ -24,12 +24,12 @@ const fetchRequest = () => ({
   type: FETCH_REQUEST,
 });
 
-const fetchSuccess = data => ({
+const fetchSuccess = (data) => ({
   type: FETCH_SUCCESS,
   payload: data,
 });
 
-const fetchFailure = error => ({
+const fetchFailure = (error) => ({
   type: FETCH_FAILURE,
   payload: error,
 });
@@ -39,39 +39,39 @@ const removeSuccess = () => ({
   type: REMOVE_SUCCESS,
 });
 
-const removeFailure = error => ({
+const removeFailure = (error) => ({
   type: REMOVE_FAILURE,
   payload: error,
 });
 
 // action creator
-const fetchBooks = () => function (dispatch) {
+const fetchBooks = () => (dispatch) => {
   dispatch(fetchRequest());
   getBooks()
-    .then(response => {
+    .then((response) => {
       dispatch(fetchSuccess(response.data));
     })
-    .catch(error => {
+    .catch((error) => {
       dispatch(fetchFailure(error.message));
     });
 };
 
-const createBook = data => function (dispatch) {
+const createBook = (data) => (dispatch) => {
   create(data)
     .then(() => {
       dispatch(fetchBooks());
     })
-    .catch(error => {
+    .catch((error) => {
       dispatch(createFailure(error.message));
     });
 };
 
-const removeBook = book => dispatch => {
+const removeBook = (book) => (dispatch) => {
   remove(book.id)
     .then(() => {
       dispatch(fetchBooks());
     })
-    .catch(error => {
+    .catch((error) => {
       dispatch(removeFailure(error.message));
     });
 };

@@ -83,12 +83,17 @@ hr {
   color: #0290ff;
 }
 
-#select {
+#select,
+.select {
   font-family: Montserrat, Helvetica, sans-serif;
   font-size: 13px;
   letter-spacing: 1.9px;
   text-transform: uppercase;
   color: #121212;
+}
+
+.select {
+  margin: 5px 5%;
 }
 
 #add {
@@ -114,14 +119,15 @@ select {
   font-family: Montserrat-reg, Helvetica, sans-serif;
   font-size: 16px;
   color: #c4c4c4;
+  margin-right: 2px;
 }
 
 input[type='text'] {
-  width: 50%;
+  width: 40%;
 }
 
 #cat {
-  width: 30%;
+  width: 25%;
 }
 
 input[type='submit'] {
@@ -139,6 +145,7 @@ input[type='submit'] {
   }
 
   input[type='text'] {
+    margin-top: 10px;
     padding: 12px 4% 12px 4%;
     width: 92%;
   }
@@ -147,5 +154,9 @@ input[type='submit'] {
   select {
     width: 100%;
     margin-top: 10px;
+  }
+
+  #add {
+    margin: 5px 5% -5px 5%;
   }
 }
