@@ -7,7 +7,7 @@ import reducer from './index';
 
 const store = createStore(
   reducer,
-  composeWithDevTools(applyMiddleware(logger, thunk))
+  composeWithDevTools(applyMiddleware(logger, thunk)),
 );
 
 export default store;

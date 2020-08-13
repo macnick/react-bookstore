@@ -9,6 +9,7 @@ const FETCH_FAILURE = 'FETCH_FAILURE';
 const REMOVE_SUCCESS = 'REMOVE_SUCCESS';
 const REMOVE_FAILURE = 'REMOVE_FAILURE';
 
+// eslint-disable-next-line no-unused-vars
 const createSuccess = book => ({
   type: CREATE_SUCCESS,
   book,
@@ -33,6 +34,7 @@ const fetchFailure = error => ({
   payload: error,
 });
 
+// eslint-disable-next-line no-unused-vars
 const removeSuccess = () => ({
   type: REMOVE_SUCCESS,
 });

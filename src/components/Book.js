@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { remove } from '../api-services/services';
 
 const Book = ({ book, removeBook }) => (
   <div className="line">

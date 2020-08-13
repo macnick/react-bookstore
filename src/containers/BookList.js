@@ -1,9 +1,10 @@
+/* eslint-disable react/require-default-props */
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { fetchBooks, removeBook } from '../actions/async';
 import Book from '../components/Book';
-import { /* removeBook, */ changeFilter } from '../actions';
+import { changeFilter } from '../actions';
 import CategoryFilter from '../components/CategoryFilter';
 
 const BookList = ({
