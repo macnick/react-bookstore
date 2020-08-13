@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unused-prop-types */
 /* eslint-disable react/require-default-props */
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
