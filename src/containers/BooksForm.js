@@ -2,8 +2,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-// import { createBook } from '../actions/index';
-// import { create } from '../api-services/services';
 import { fetchBooks, createBook } from '../actions/async';
 
 class BooksForm extends Component {
@@ -47,13 +45,7 @@ class BooksForm extends Component {
     const { title, category, author } = this.state;
     const { createBook } = this.props;
     if (title && category && author) {
-      this.props.fetchBooks();
       createBook(this.state);
-      // create({ title, category, author })
-      //   .then(this.state)
-      //   .catch((e) => {
-      //     console.log(e);
-      //   });
       this.setState({
         title: '',
         category: '',
@@ -93,7 +85,7 @@ class BooksForm extends Component {
             <option value="Category" defaultValue>
               Category
             </option>
-            {this.categories.map((cat) => (
+            {this.categories.map(cat => (
               <option value={cat} key={cat}>
                 {cat}
               </option>
@@ -106,8 +98,8 @@ class BooksForm extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => ({
-  createBook: (book) => {
+const mapDispatchToProps = dispatch => ({
+  createBook: book => {
     dispatch(createBook(book));
   },
   fetchBooks: () => {
