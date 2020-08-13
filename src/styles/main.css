@@ -1,0 +1,151 @@
+@font-face {
+  font-family: Montserrat;
+  src: url(../fonts/Montserrat/Montserrat-Bold.ttf);
+}
+
+@font-face {
+  font-family: Montserrat-reg;
+  src: url(../fonts/Montserrat/Montserrat-Regular.ttf);
+}
+
+@font-face {
+  font-family: RobotoSlab;
+  src: url(../fonts/Roboto_Slab/static/RobotoSlab-Bold.ttf);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f5f6fa;
+}
+
+hr {
+  margin: 10px 5%;
+  color: #e8e8e8;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  font-family: Montserrat, Helvetica, sans-serif;
+  font-size: larger;
+  margin: 41px 5% 38px 5%;
+}
+
+.container {
+  display: block;
+  justify-content: center;
+  margin: 0 5%;
+}
+
+.line {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: 1px solid #e8e8e8;
+  border-radius: 4px;
+  background-color: #fff;
+  padding: 40px 30px;
+  margin-bottom: 10px;
+}
+
+.line > td {
+  padding: 25px;
+}
+
+#title,
+#category {
+  color: #121212;
+}
+
+#title {
+  font-family: RobotSlab, serif;
+  font-size: 22px;
+  letter-spacing: -0.2px;
+}
+
+#category {
+  font-family: Montserrat, Helvetica, sans-serif;
+  font-size: 14px;
+  color: #999;
+}
+
+.container button {
+  background-color: #0290ff;
+  color: #fff;
+  border-radius: 3px;
+  border: none;
+  padding: 10px;
+}
+
+#logo {
+  font-size: 30px;
+  color: #0290ff;
+}
+
+#select {
+  font-family: Montserrat, Helvetica, sans-serif;
+  font-size: 13px;
+  letter-spacing: 1.9px;
+  text-transform: uppercase;
+  color: #121212;
+}
+
+#add {
+  font-family: Montserrat, Helvetica, sans-serif;
+  font-size: 20px;
+  letter-spacing: -0.18px;
+  text-transform: uppercase;
+  color: #888;
+  margin: 5px 5%;
+}
+
+form {
+  display: flex;
+  margin: 10px 5%;
+  justify-content: space-between;
+}
+
+input[type='text'],
+select {
+  padding: 12px 17px;
+  border: 1px solid #888;
+  border-radius: 4px;
+  font-family: Montserrat-reg, Helvetica, sans-serif;
+  font-size: 16px;
+  color: #c4c4c4;
+}
+
+input[type='text'] {
+  width: 50%;
+}
+
+#cat {
+  width: 30%;
+}
+
+input[type='submit'] {
+  width: 14%;
+  background-color: #0290ff;
+  color: #fff;
+  border-radius: 3px;
+  border: none;
+  padding: 9px;
+}
+
+@media only screen and (max-width: 780px) {
+  form {
+    flex-direction: column;
+  }
+
+  input[type='text'] {
+    padding: 12px 4% 12px 4%;
+    width: 92%;
+  }
+
+  input[type='submit'],
+  select {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
