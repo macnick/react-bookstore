@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createBook } from '../actions/index';
 import { create } from '../api-services/services';
+import fetchBooks from '../actions/async';
 
 class BooksForm extends Component {
   constructor(props) {
@@ -58,6 +59,7 @@ class BooksForm extends Component {
         author: '',
       });
       e.target.reset();
+      this.props.fetchBooks();
     }
   }
 
@@ -104,6 +106,9 @@ class BooksForm extends Component {
 const mapDispatchToProps = (dispatch) => ({
   createBook: (book) => {
     dispatch(createBook(book));
+  },
+  fetchBooks: () => {
+    dispatch(fetchBooks());
   },
 });
 

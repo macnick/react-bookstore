@@ -6,7 +6,6 @@ const initialState = {
   loading: false,
   books: [],
   error: '',
-  filter: 'All',
 };
 
 const fetchReducer = (state = initialState, action) => {
@@ -28,7 +27,6 @@ const fetchReducer = (state = initialState, action) => {
         loading: false,
         books: [],
         error: action.payload,
-        filter: 'All',
       };
     default:
       return state;
