@@ -2,9 +2,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { createBook } from '../actions/index';
-import { create } from '../api-services/services';
-import { fetchBooks } from '../actions/async';
+// import { createBook } from '../actions/index';
+// import { create } from '../api-services/services';
+import { fetchBooks, createBook } from '../actions/async';
 
 class BooksForm extends Component {
   constructor(props) {
@@ -46,14 +46,14 @@ class BooksForm extends Component {
     e.preventDefault();
     const { title, category, author } = this.state;
     const { createBook } = this.props;
-    if (title && category) {
-      this.props.fetchBooks()
+    if (title && category && author) {
+      this.props.fetchBooks();
       createBook(this.state);
-      create({ title, category, author })
-        .then(this.state)
-        .catch((e) => {
-          console.log(e);
-        });
+      // create({ title, category, author })
+      //   .then(this.state)
+      //   .catch((e) => {
+      //     console.log(e);
+      //   });
       this.setState({
         title: '',
         category: '',

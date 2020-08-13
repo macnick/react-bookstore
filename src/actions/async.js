@@ -1,10 +1,24 @@
-import { getBooks, remove } from '../api-services/services';
+import { getBooks, create, remove } from '../api-services/services';
+
+const CREATE_SUCCESS = 'CREATE_SUCCESS';
+const CREATE_FAILURE = 'CREATE_FAILURE';
 
 const FETCH_REQUEST = 'FETCH_REQUEST';
 const FETCH_SUCCESS = 'FETCH_SUCCESS';
 const FETCH_FAILURE = 'FETCH_FAILURE';
 const REMOVE_SUCCESS = 'REMOVE_SUCCESS';
 const REMOVE_FAILURE = 'REMOVE_FAILURE';
+
+const createSuccess = book => ({
+  type: CREATE_SUCCESS,
+  book,
+});
+
+const createFailure = error => ({
+  type: CREATE_FAILURE,
+  payload: error,
+});
+
 const fetchRequest = () => ({
   type: FETCH_REQUEST,
 });
@@ -40,6 +54,16 @@ const fetchBooks = () => function (dispatch) {
     });
 };
 
+const createBook = data => function (dispatch) {
+  create(data)
+    .then(() => {
+      dispatch(fetchBooks());
+    })
+    .catch(error => {
+      dispatch(createFailure(error.message));
+    });
+};
+
 const removeBook = book => dispatch => {
   remove(book.id)
     .then(() => {
@@ -50,4 +74,4 @@ const removeBook = book => dispatch => {
     });
 };
 
-export { fetchBooks, removeBook };
+export { fetchBooks, removeBook, createBook };
