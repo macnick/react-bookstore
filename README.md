@@ -1,3 +1,4 @@
+[![npm version](https://badge.fury.io/js/react.svg)](https://badge.fury.io/js/react) [![npm version](https://badge.fury.io/js/react-dom.svg)](https://badge.fury.io/js/react-dom) [![npm version](https://badge.fury.io/js/redux.svg)](https://badge.fury.io/js/redux)
 # react-bookstore
 
 Magic-books Inc. bookstore application. Fast, dynamic and responsive build with React &amp; Redux.
