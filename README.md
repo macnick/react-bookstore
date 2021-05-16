@@ -1,7 +1,7 @@
 # react-bookstore
 
-<p align="canter">
-![react](https://badge.fury.io/js/react.svg) ![redux](https://badge.fury.io/js/redux.svg) ![GitHub top language](https://img.shields.io/github/languages/top/macnick/react-bookstore) ![W3C Validation](https://img.shields.io/w3c-validation/html?preset=HTML%2C%20SVG%201.1%2C%20MathML%203.0&targetUrl=https%3A%2F%2Fabout.validator.nu%2F) [![npm version](https://badge.fury.io/js/license.svg)](https://badge.fury.io/js/license)
+<p align="center">
+![react](https://badge.fury.io/js/react.svg) ![redux](https://badge.fury.io/js/redux.svg) ![GitHub top language](https://img.shields.io/github/languages/top/macnick/react-bookstore) ![W3C Validation](https://img.shields.io/w3c-validation/html?preset=HTML%2C%20SVG%201.1%2C%20MathML%203.0&targetUrl=https%3A%2F%2Fabout.validator.nu%2F) [![License](https://img.shields.io/badge/license-MIT-blue.svg](https://img.shields.io/badge/license-MIT-blue.svg)
 </p>
 Magic-books Inc. bookstore application. Fast, dynamic and responsive build with React &amp; Redux.
 
