@@ -89,7 +89,7 @@ Use your terminal and run the commands after each instruction.
 
 - Github: [@Abdusaid10](https://github.com/Abdusaid10)
 - Twitter: [@abdusaid_A](https://twitter.com/abdusaid_a)
-- Linkedin: [Abdusaid Abdurasulov](linkedin.com/in/abdusaid)
+- Linkedin: [Abdusaid Abdurasulov](https://www.linkedin.com/in/abdusaid)
 - AngelList: [Abdusaid Abdurasulov](https://angel.co/u/abdusaid-abdurasulov)
 
 ## 🤝 Contributing
